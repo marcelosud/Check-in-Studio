@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Check-in Studio</string>
+    <string name="tab_text_1">Check-in</string>
+    <string name="tab_text_2">Teste</string>
+    <string name="tab_text_3">Cadastro</string>
+    <string name="tab_text_4">Relatório</string>
+    <string name="table_layout_name">Nome</string>
+    <string name="table_layout_name_value">Marcelo Moraes</string>
+    <string name="table_layout_date">Data</string>
+    <string name="table_layout_date_value">15/11/2022 21:05:15</string>
+    <string name="checkIn_updated_successfully">Check In atualizado com sucesso!</string>
+    <string name="checkIn_error_to_update">Check In não atualizado - Erro!</string>
+    <string name="checkIn_inserted_successfully">Check In cadastrado com sucesso!</string>
+    <string name="checkIn_error_to_insert">Check In não cadastrado - Erro!</string>
+    <string name="checkIn_deleted_successfully">Check In excluído com sucesso!</string>
+    <string name="checkIn_error_to_delete">Check In não excluído - Erro!</string>
+</resources>
