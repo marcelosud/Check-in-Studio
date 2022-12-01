@@ -66,11 +66,11 @@ class PlaceholderFragmentTest : Fragment() {
         })
 
 
-        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+/*        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             checkInViewModel.saveOrUpdate()
             checkInViewModel.saveOrUpdateButtonText
             checkInViewModel.clearAllOrDeleteButtonText
-        }
+        }*/
 
 
         return root
