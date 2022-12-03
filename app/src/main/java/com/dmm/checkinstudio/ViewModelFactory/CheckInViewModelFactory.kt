@@ -3,8 +3,7 @@ package com.dmm.checkinstudio.ViewModelFactory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dmm.checkinstudio.CheckInViewModel
-import com.dmm.checkinstudio.CheckInTesteViewModel
-import com.dmm.checkinstudio.db.CheckInRepository
+import com.dmm.checkinstudio.repositories.CheckInRepository
 import java.lang.IllegalArgumentException
 
 class CheckInViewModelFactory (

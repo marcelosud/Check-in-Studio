@@ -8,29 +8,23 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmm.checkinstudio.ViewAdapter.MyRecyclerViewAdapter
-import com.dmm.checkinstudio.ViewModelFactory.CheckInViewModelFactory
 import com.dmm.checkinstudio.ui.main.SectionsPagerAdapter
 import com.dmm.checkinstudio.databinding.ActivityMainBinding
-import com.dmm.checkinstudio.databinding.FragmentTesteBinding
-import com.dmm.checkinstudio.db.CheckIn
-import com.dmm.checkinstudio.db.CheckInDatabase
-import com.dmm.checkinstudio.db.CheckInRepository
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import com.dmm.checkinstudio.entities.CheckIn
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var checkInViewModel: CheckInViewModel
     private lateinit var adapter: MyRecyclerViewAdapter
 
+    //On Create apenas para activity main
 /*    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -53,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         closeKeyBoard()
     }*/
 
+    //On Create  para activity Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

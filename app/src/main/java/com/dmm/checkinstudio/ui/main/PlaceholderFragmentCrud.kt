@@ -1,16 +1,30 @@
 package com.dmm.checkinstudio.ui.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.dmm.checkinstudio.R
+import com.dmm.checkinstudio.ViewModel.UsuarioViewModel
 import com.dmm.checkinstudio.databinding.FragmentCrudBinding
+import com.dmm.checkinstudio.entities.Usuario
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-class PlaceholderFragmentCrud : Fragment() {
+@AndroidEntryPoint
+class PlaceholderFragmentCrud : Fragment(R.layout.fragment_crud) {
+
+    //lateinit var binding: FragmentCrudBinding
+    private val usuarioViewModel: UsuarioViewModel by viewModels()
 
     private lateinit var pageViewModel: PageViewModel
     private var _binding: FragmentCrudBinding? = null
@@ -40,6 +54,49 @@ class PlaceholderFragmentCrud : Fragment() {
             textView.text = "Tela de cadastro de usuários"
         })
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentCrudBinding.bind(view)
+
+/*        usuarioViewModel.usuarioLiveData.observe(viewLifecycleOwner){usuario->
+            if (usuario!!.size >=1){
+                viewLifecycleOwner.lifecycleScope.launch {
+
+                    binding.nameText.setText(usuario!![0].nome)
+                    binding.documentText.setText(usuario!![0].documento.toString())
+                    binding.tokenText.setText(usuario!![0].token.toString())
+                }
+            }else{
+                Toast.makeText(requireContext(),"Usuario cadastrado", Toast.LENGTH_SHORT).show()
+            }
+        }*/
+
+
+        binding.buttonAdicionarUsuario.setOnClickListener {
+            submitData(
+                binding.nameText.text.toString(),
+                binding.documentText.text.toString(),
+                binding.tokenText.text.toString()
+            )
+        }
+    }
+
+    private fun submitData(
+        nome: String,
+        documento: String,
+        token: String
+    ) {
+
+        usuarioViewModel.insertUsuarioData(
+            Usuario(
+                id = 0,
+                nome = nome,
+                documento = documento,
+                token = token)
+        )
+
     }
 
     companion object {

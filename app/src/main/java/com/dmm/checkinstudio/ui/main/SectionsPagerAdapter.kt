@@ -8,7 +8,6 @@ import com.dmm.checkinstudio.R
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
-    R.string.tab_text_2,
     R.string.tab_text_3,
     R.string.tab_text_4
 )
@@ -25,9 +24,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         // Return a PlaceholderFragment (defined as a static inner class below).
         return when (position){
             0 -> PlaceholderFragment.newInstance(position + 1)
-            1 -> PlaceholderFragmentTest.newInstance(position + 1)
-            2 -> PlaceholderFragmentCrud.newInstance(position + 1)
-            3 -> PlaceholderFragmentReport.newInstance(position + 1)
+            1 -> PlaceholderFragmentCrud.newInstance(position + 1)
+            2 -> PlaceholderFragmentReport.newInstance(position + 1)
             else -> PlaceholderFragment.newInstance(position + 1)
         }
     }
@@ -38,6 +36,6 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getCount(): Int {
         // Show 2 total pages.
-        return 4
+        return 3
     }
 }

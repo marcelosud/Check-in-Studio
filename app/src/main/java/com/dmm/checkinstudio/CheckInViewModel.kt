@@ -6,11 +6,18 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
-import com.dmm.checkinstudio.db.CheckIn
-import com.dmm.checkinstudio.db.CheckInRepository
+import com.dmm.checkinstudio.entities.CheckIn
+import com.dmm.checkinstudio.entities.Usuario
+import com.dmm.checkinstudio.repositories.CheckInRepository
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CheckInViewModel (private val repository: CheckInRepository) : ViewModel() {
+@HiltViewModel
+class CheckInViewModel @Inject constructor(
+    private val checkInRepository: CheckInRepository
+) : ViewModel() {
 
     private var isUpdateOrDelete = false
     private lateinit var checkInToUpdateOrDelete: CheckIn
@@ -28,6 +35,7 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
         saveOrUpdateButtonText.value = "Save"
         clearAllOrDeleteButtonText.value = "Clear All"
     }
+    //val checkInLiveData: LiveData<List<CheckIn>> = checkInRepository.getAllCheckIns()
 
     fun saveOrUpdate() {
         if (inputName.value == null) {
@@ -56,9 +64,9 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
 
     }
 
-    private fun insertChecKIn(checkIn: CheckIn) = viewModelScope.launch {
+    fun insertChecKIn(checkIn: CheckIn) = viewModelScope.launch {
 
-        val newRowId = repository.insert(checkIn)
+        val newRowId = checkInRepository.insert(checkIn)
         if (newRowId > -1) {
             statusMessage.value = Event("Subscriber Inserted Successfully $newRowId")
         } else {
@@ -67,7 +75,7 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
     }
 
     private fun updateCheckin(checkIn: CheckIn) = viewModelScope.launch {
-        val noOfRows = repository.update(checkIn)
+        val noOfRows = checkInRepository.update(checkIn)
         if (noOfRows > 0) {
             inputName.value = ""
             inputEmail.value = ""
@@ -82,7 +90,7 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
     }
 
     fun getSavedCheckIns() = liveData {
-        repository.checkIns.collect {
+        checkInRepository.checkIns.collect {
             emit(it)
         }
     }
@@ -99,7 +107,7 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
 
 
     private fun deleteCheckIn(checkIn: CheckIn) = viewModelScope.launch {
-        val noOfRowsDeleted = repository.delete(checkIn)
+        val noOfRowsDeleted = checkInRepository.delete(checkIn)
         if (noOfRowsDeleted > 0) {
             inputName.value = ""
             inputEmail.value = ""
@@ -113,7 +121,7 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
     }
 
     private fun clearAll() = viewModelScope.launch {
-        val noOfRowsDeleted = repository.deleteAll()
+        val noOfRowsDeleted = checkInRepository.deleteAll()
         if (noOfRowsDeleted > 0) {
             statusMessage.value = Event("$noOfRowsDeleted Subscribers Deleted Successfully")
         } else {
@@ -130,23 +138,4 @@ class CheckInViewModel (private val repository: CheckInRepository) : ViewModel()
         clearAllOrDeleteButtonText.value = "Delete"
     }
 
-    fun Fragment.hideKeyboard() {
-        view?.let { activity?.hideKeyboard(it) }
-    }
-
-    fun Activity.hideKeyboard() {
-        hideKeyboard(currentFocus ?: View(this))
-    }
-
-    fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-    fun View.hideKeyboard(inputMethodManager: InputMethodManager) {
-        inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
-    }
-
-    fun View.setText(inputMethodManager: InputMethodManager) {
-        inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
-    }
 }

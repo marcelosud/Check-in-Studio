@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.dmm.checkinstudio.R
 import com.dmm.checkinstudio.databinding.ListItemCkeckinBinding
-import com.dmm.checkinstudio.db.CheckIn
+import com.dmm.checkinstudio.entities.CheckIn
 
 class MyRecyclerViewAdapter(private val clickListener: (CheckIn) -> Unit) :
     RecyclerView.Adapter<MyViewHolder>() {

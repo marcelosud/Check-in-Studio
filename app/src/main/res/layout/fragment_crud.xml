@@ -7,124 +7,124 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="92dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        <TextView
+            android:id="@+id/section_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-    <TextView
-        android:id="@+id/name_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Nome: "
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/section_label"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Nome: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/section_label"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-    <EditText
-        android:id="@+id/name_text"
-        android:layout_width="359dp"
-        android:layout_height="44dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
-        android:text="Marcelo Moraes"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/name_label"
-        tools:layout_constraintLeft_creator="2"
-        tools:layout_constraintTop_creator="2" />
+        <EditText
+            android:id="@+id/name_text"
+            android:layout_width="359dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:text="Marcelo Moraes"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name_label"
+            tools:layout_constraintLeft_creator="2"
+            tools:layout_constraintTop_creator="2" />
 
-    <TextView
-        android:id="@+id/document_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
-        android:text="Documento: "
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/name_text"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        <TextView
+            android:id="@+id/document_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="60dp"
+            android:text="Documento: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name_text"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-    <EditText
-        android:id="@+id/document_text"
-        android:layout_width="361dp"
-        android:layout_height="46dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
-        android:text="123.456.789-10"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/document_label"
-        tools:layout_constraintLeft_creator="3"
-        tools:layout_constraintTop_creator="3" />
+        <EditText
+            android:id="@+id/document_text"
+            android:layout_width="361dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:text="123.456.789-10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/document_label"
+            tools:layout_constraintLeft_creator="3"
+            tools:layout_constraintTop_creator="3" />
 
-    <TextView
-        android:id="@+id/token_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
-        android:text="Token: "
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/document_text"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintTop_creator="1" />
+        <TextView
+            android:id="@+id/token_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="60dp"
+            android:text="Token: "
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/document_text"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
 
-    <EditText
-        android:id="@+id/token_text"
-        android:layout_width="361dp"
-        android:layout_height="46dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
-        android:text="123456"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/token_label"
-        tools:layout_constraintLeft_creator="3"
-        tools:layout_constraintTop_creator="3" />
+        <EditText
+            android:id="@+id/token_text"
+            android:layout_width="361dp"
+            android:layout_height="46dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="28dp"
+            android:text="123456"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/token_label"
+            tools:layout_constraintLeft_creator="3"
+            tools:layout_constraintTop_creator="3" />
 
-    <ImageView
-        android:id="@+id/biometria_image"
-        android:layout_width="212dp"
-        android:layout_height="208dp"
-        android:layout_marginLeft="97dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/avatar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/token_text"
-        tools:layout_constraintLeft_creator="4"
-        tools:layout_constraintTop_creator="4" />
 
-    <Button
-        android:id="@+id/button_subscriber"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Adicionar"
-        app:layout_constraintEnd_toEndOf="@id/biometria_image"
-        app:layout_constraintStart_toStartOf="@id/biometria_image"
-        app:layout_constraintTop_toBottomOf="@id/biometria_image" />
+        <ImageView
+            android:id="@+id/biometria_image"
+            android:layout_width="164dp"
+            android:layout_height="156dp"
+            android:layout_marginLeft="112dp"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/avatar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/token_text"
+            tools:layout_constraintLeft_creator="4"
+            tools:layout_constraintTop_creator="4" />
 
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="Excluir"
-        android:textColor="@android:color/white"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/button_subscriber"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/button_subscriber"
-        tools:visibility="visible" />
+        <Button
+            android:id="@+id/button_adicionar_usuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Adicionar"
+            app:layout_constraintEnd_toEndOf="@id/biometria_image"
+            app:layout_constraintStart_toStartOf="@id/biometria_image"
+            app:layout_constraintTop_toBottomOf="@id/biometria_image" />
 
+        <Button
+            android:id="@+id/button_excluir_usuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="84dp"
+            android:background="@android:color/holo_red_dark"
+            android:text="Excluir"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/button_adicionar_usuario"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/button_adicionar_usuario"
+            tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
