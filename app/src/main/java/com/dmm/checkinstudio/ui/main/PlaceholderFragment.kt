@@ -1,9 +1,15 @@
 package com.dmm.checkinstudio.ui.main
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -37,10 +43,32 @@ class PlaceholderFragment : Fragment(R.layout.fragment_main) {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    // Define the button and imageview type variable
+    //lateinit var camera_open_id: Button
+    //lateinit var click_image_id: ImageView
+
+/*    companion object {
+        // Define the pic id
+        private const val pic_id = 123
+    }  */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
+
+        }
+    }
+
+    // This method will help to retrieve the image
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // Match the request 'pic id with requestCode
+        if (requestCode == 123) {
+            // BitMap is data structure of image file which store the image in memory
+            val photo = data!!.extras!!["data"] as Bitmap?
+            // Set the image in imageview for display
+            binding.biometriaImage.setImageBitmap(photo)
         }
     }
 
@@ -48,7 +76,6 @@ class PlaceholderFragment : Fragment(R.layout.fragment_main) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root = binding.root
 
@@ -94,6 +121,15 @@ class PlaceholderFragment : Fragment(R.layout.fragment_main) {
                 date_hora,
                 "Biometria"
             )
+
+            // Create the camera_intent ACTION_IMAGE_CAPTURE it will open the camera for capture the image
+            val camera_intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            } else {
+                TODO("VERSION.SDK_INT < CUPCAKE")
+            }
+            // Start the activity with camera_intent, and request pic id
+            startActivityForResult(camera_intent, 123)
         }
     }
 

@@ -1,7 +1,11 @@
 package com.dmm.checkinstudio.ui.main
 
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,6 +84,27 @@ class PlaceholderFragmentCrud : Fragment(R.layout.fragment_crud) {
                 binding.documentText.text.toString(),
                 binding.tokenText.text.toString()
             )
+
+            // Create the camera_intent ACTION_IMAGE_CAPTURE it will open the camera for capture the image
+            val camera_intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            } else {
+                TODO("VERSION.SDK_INT < CUPCAKE")
+            }
+            // Start the activity with camera_intent, and request pic id
+            startActivityForResult(camera_intent, 123)
+        }
+    }
+
+    // This method will help to retrieve the image
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // Match the request 'pic id with requestCode
+        if (requestCode == 123) {
+            // BitMap is data structure of image file which store the image in memory
+            val photo = data!!.extras!!["data"] as Bitmap?
+            // Set the image in imageview for display
+            binding.biometriaImage.setImageBitmap(photo)
         }
     }
 
